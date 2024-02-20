@@ -1,0 +1,97 @@
+﻿Modules Present 
+----------------
+	-> User	
+	-> Organisation	
+	-> Contacts	
+	-> Tender
+	-> Dashboard	
+		=> User Activity Logs
+		=> User Feeds
+		
+	-> Additional Modules created ( As per requirement)	
+		=> Settings	
+			-> Form Access	
+			-> General Parameter	
+			-> Business Parameter	
+	
+Directory Structure
+----------------	
+	-> Tender Folder contains all the data
+	-> Assets
+		-> INclude/check tender_pricelist folder in resources/excels
+	-> Catalog(if old website)
+	-> All images,pdf folder path declared in Constant -> tender/config/constants
+	-> js and css required are in assets folder
+	
+Steps for Integration 
+----------------
+	## Tables Required (Import Database files)
+		-> products
+		-> price_list
+		-> tender_activity
+		-> tender_bsn_prm
+		-> tender_contact
+		-> tender_country_vol
+		-> tender_department
+		-> tender_detail
+		-> tender_emaillogs	
+		-> tender_et_data_types
+		-> tender_et_entities
+		-> tender_et_excel_entries
+		-> tender_et_excel_files
+		-> tender_form_access
+		-> tender_gen_prm
+		-> tender_menu_master
+		-> tender_menu_transaction
+		-> tender_organisation
+		-> tender_person
+		-> tender_product
+		-> tender_sub_menu_master
+		
+	## Config/database.php 	 -> update database credentials
+	
+	## Config/crmsetting.php -> change project Name and email credentials according to project
+		
+	## Config/constants.php  -> Update below as per domain
+			define('PROJECT_NAME','Sample Website');
+			define('WEBSITE_LINK','https://www.samplewebsite.com/');
+			define('WEBSITE_TNC','<p>• SAMPLE WEBSITE.<br>• Bank Name: Royal Bank of Canada<br>• USD Account Number: 4006219<br>• Swift Code: ROYCCAT2<br>• Branch address: Northland Plaza BR 4820 Northland DR NW Suite 220 Calgary AB T2L 2L3<br>• Products shipment will be 4 weeks from the date of receipt of payment<br>• Quotation Validity: 60 days<br>• Warranty: One year from the date of shipment, against any manufacturing defects<br>• 100 % advance payment by wire transfer</p>');
+				
+	## Truncate and update below queries in database
+	
+			TRUNCATE TABLE `tender_activity`;
+			TRUNCATE TABLE `tender_contact`;
+			TRUNCATE TABLE `tender_detail`;
+			TRUNCATE TABLE `tender_emaillogs`;
+			TRUNCATE TABLE `tender_form_access`;
+			TRUNCATE TABLE `tender_organisation`;
+			TRUNCATE TABLE `tender_person`;
+			TRUNCATE TABLE `tender_product`;
+			TRUNCATE TABLE `tender_et_excel_entries`;
+			TRUNCATE TABLE `tender_et_excel_files`;
+			
+			
+		-> 
+			INSERT INTO `tender_person` (`prs_id`, `prs_name`, `prs_username`, `prs_mob`, `prs_dpt_id`, `prs_email`, `prs_emilpwd`, `prs_password`, `prs_skypeid`, `prs_tnc`, `prs_currency`, `prs_host`, `prs_port`, `status`, `created_by`, `created_dt`, `updated_by`, `updated_dt`) VALUES
+			(1, 'Super Admin', 'admin', '+442080043608', 1, 'khyati.labtron@gmail.com', 'khyati@123', 'chkAStOkf7PJzKigqmiQJg==', 'khyati_81', '<div>1. Company Name: SAMPLE WEBSITE</div><div>2. Quotation validity: 60 days&nbsp;</div><div>3. 100% advance payment by wire transfer&nbsp;</div><div>4. Warranty: One year from the date of shipment, against all manufacturing defects&nbsp;</div><div>5. Shipment: 2-4 weeks from the date of receipt of payment</div>', 1, 'ssl://smtp.gmail.com', 465, 1, 1, '2020-03-31 12:51:42', 1, '2020-04-01 04:53:23');
+
+			
+			INSERT INTO `tender_form_access` (`fma_id`, `fma_usr_id`, `fma_mnu_id`, `fma_sbm_id`, `fma_access`, `fma_read`, `fma_write`, `fma_update`, `fma_delete`, `fma_status`) VALUES
+			(1, 1, 3, 1, '1', '1', '1', '1', '1', 'y'),
+			(2, 1, 3, 2, '1', '1', '1', '1', '1', 'y'),
+			(3, 1, 3, 3, '1', '1', '1', '1', '1', 'y'),
+			(4, 1, 7, 4, '1', '1', '1', '1', '1', 'y'),
+			(5, 1, 7, 5, '1', '1', '1', '1', '1', 'y');
+				
+			INSERT INTO `tender_organisation` (`org_id`, `org_name`, `org_primaryemail`, `org_secondaryemail`, `org_tertiaryemail`, `org_primaryphone`, `org_altphone`, `org_fax`, `org_website`, `org_assignedto`, `org_assignedid`, `org_industry`, `org_cst`, `org_vat`, `org_billingadd`, `org_billingpob`, `org_billingcity`, `org_billingstate`, `org_billingpoc`, `org_billingcountry`, `org_shippingadd`, `org_shippingpob`, `org_shippingcity`, `org_shippingstate`, `org_shippingpoc`, `org_shippingcountry`, `org_desc`, `org_comment`, `status`, `created_by`, `created_dt`, `updated_by`, `updated_dt`) VALUES
+			(1, 'Individual', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', 0, '', '', 1, 1, '2020-03-31 12:51:42', 1, '2020-04-01 10:22:56');
+	
+	## login to project with admin login 
+			username : admin
+			password : d*v%0p#r@3
+		And then go to settings in left side menu -> update all required data in business parameter
+		
+	## Change Header logo according to the project  in  assets/images/header_logo.png
+
+
+

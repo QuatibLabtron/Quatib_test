@@ -1,0 +1,109 @@
+Admin panel Process
+
+Requirements 
+-> In assets/resource folder required
+	In excel
+		categories
+		section
+		products
+		pricelist
+		pages
+	In images
+		categories
+		section
+		products
+		banners
+		
+-> In assets/image folder required
+		- Logo.png
+		- icon.png (favicon)
+
+Start with : 
+1) Business Parameters (path - Sidebar menu - settings/Business Parameters)
+	-> make changes of website name and other important variables
+2) Section ( import/Crud)
+3) Catergories
+4) products
+5) pricelist
+6) 
+
+Clearing data for live website
+
+Admin
+
+TRUNCATE TABLE adm_et_excel_files;
+TRUNCATE TABLE adm_et_excel_entries;
+
+
+Quotemaker
+TRUNCATE TABLE admin;
+TRUNCATE TABLE `quotations`;
+TRUNCATE TABLE `quote_contactactivity`;
+TRUNCATE TABLE `quote_contacts`;
+TRUNCATE TABLE `quote_edited`;
+TRUNCATE TABLE `quote_emaillogs`;
+TRUNCATE TABLE `quote_organisation`;
+TRUNCATE TABLE `quote_pinvoiceno`;
+TRUNCATE TABLE `quote_pod`;
+TRUNCATE TABLE `quote_product`;
+TRUNCATE TABLE `quote_savedlogs`;
+TRUNCATE TABLE `quote_share`;
+TRUNCATE TABLE `quote_shipper`;
+TRUNCATE TABLE `quote_tax`;
+TRUNCATE TABLE `quote_uploaddata`;
+TRUNCATE TABLE `tax_cal`;
+TRUNCATE TABLE `termsncond`;
+TRUNCATE TABLE `wn_synset`;
+
+Frontend
+
+TRUNCATE TABLE sections;
+TRUNCATE TABLE categories;
+TRUNCATE TABLE products;
+TRUNCATE TABLE product_attribute;
+TRUNCATE TABLE price_list;
+TRUNCATE TABLE pages;
+TRUNCATE TABLE attributes;
+
+Optional Queries:
+
+ALTER TABLE `adm_et_data_types` ADD `status` TINYINT NOT NULL DEFAULT '0' COMMENT '0:Active;1:Inactive;2:blocked' AFTER `length`, ADD `crtd_by` INT(11) NOT NULL AFTER `status`, ADD `crtd_dt` DATETIME NOT NULL AFTER `crtd_by`, ADD `updt_by` INT(11) NOT NULL AFTER `crtd_dt`, ADD `updt_dt` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `updt_by`;
+
+UPDATE `adm_et_data_types` SET `crtd_by` = '1';
+UPDATE `adm_et_data_types` SET `updt_by` = '1';
+UPDATE `adm_et_data_types` SET `crtd_dt` = '2020-01-21 04:31:27';
+
+
+
+
+ALTER TABLE `adm_et_entities` ADD `status` TINYINT NOT NULL DEFAULT '0' COMMENT '0:Active;1:Inactive;2:blocked' AFTER `columns_attributes`, ADD `crtd_by` INT(11) NOT NULL AFTER `status`, ADD `crtd_dt` DATETIME NOT NULL AFTER `crtd_by`, ADD `updt_by` INT(11) NOT NULL AFTER `crtd_dt`, ADD `updt_dt` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `updt_by`;
+
+UPDATE `adm_et_entities` SET `crtd_by` = '1';
+UPDATE `adm_et_entities` SET `updt_by` = '1';
+UPDATE `adm_et_entities` SET `crtd_dt` = '2020-01-21 04:31:27';
+
+
+ALTER TABLE `categories`  ADD `crtd_by` INT(11) NOT NULL AFTER `inactive`, ADD `crtd_dt` DATETIME NOT NULL AFTER `crtd_by`, ADD `updt_by` INT(11) NOT NULL AFTER `crtd_dt`, ADD `updt_dt` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `updt_by`;
+
+UPDATE `categories` SET `crtd_by` = '1';
+UPDATE `categories` SET `updt_by` = '1';
+UPDATE `categories` SET `crtd_dt` = '2020-01-21 04:31:27';
+
+ALTER TABLE `categories` CHANGE `tags` `meta_keyword` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+
+ALTER TABLE `price_list` ADD `inactive` TINYINT NOT NULL DEFAULT '0' COMMENT '0:Active;1:Inactive;2:blocked' AFTER `hs_code`, ADD `crtd_by` INT(11) NOT NULL AFTER `inactive`, ADD `crtd_dt` DATETIME NOT NULL AFTER `crtd_by`, ADD `updt_by` INT(11) NOT NULL AFTER `crtd_dt`, ADD `updt_dt` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `updt_by`;
+
+UPDATE `price_list` SET `crtd_by` = '1';
+UPDATE `price_list` SET `updt_by` = '1';
+UPDATE `price_list` SET `crtd_dt` = '2020-01-21 04:31:27';
+
+
+
+
+	
+ 
+	
+
+
+	

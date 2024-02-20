@@ -1,0 +1,96 @@
+ADMIN PANEL PROCESS
+-------------------
+
+I. Basic Credentials:
+---------------------
+Admin Login(Admin Panel)
+username : admin
+password : d*v%0p#r@3
+
+Distributor Login(Project Website):
+username: cavinlabtron@gmail.com
+password: dev@12345
+
+
+II. Folder Requirements(check for following folders, if not present create new.)
+------------------------
+-> In assets/resource folder following required;
+	a. In excel folder
+		- categories
+		- section
+		- products
+		- price_list
+		- pages
+	b. In images folder
+		- categories
+		- section
+		- products
+		- banners
+
+-> In assets/image folder following required;
+	- logo.png
+	- icon.png(favicon)
+
+
+III. Admin Module Connection;
+1. Clear data for live website
+	a. Frontend Tables
+		TRUNCATE TABLE sections;
+		TRUNCATE TABLE categories;
+		TRUNCATE TABLE products;
+		TRUNCATE TABLE product_attribute;
+		TRUNCATE TABLE attributes;
+		TRUNCATE TABLE price_list;
+		TRUNCATE TABLE pages;
+	
+	b. Admin Excel Tables(V.Imp)
+		TRUNCATE TABLE adm_et_excel_files;
+		TRUNCATE TABLE adm_et_excel_entries;
+
+2. Clear/Delete Product Images:
+	[Project_folder]\assets\images\products
+	
+3. Check equality in configuration files for both "Project Website" and "Admin Panel";
+	- Go to [Project_folder]\application\config
+	- Check database.php => settings should be same in both Project Website and Admin Panel.
+	- Check email.php => settings should be same in both Project Website and Admin Panel.
+	
+4. Update Business Parameters
+	a. Login to Admin Panel
+	b. Go to left menu -> Click "Setting" -> Click Business Parameter -> Update needed values.
+
+
+
+>>> Optional Queries(if required);
+ALTER TABLE `adm_et_data_types` ADD `status` TINYINT NOT NULL DEFAULT '0' COMMENT '0:Active;1:Inactive;2:blocked' AFTER `length`, ADD `crtd_by` INT(11) NOT NULL AFTER `status`, ADD `crtd_dt` DATETIME NOT NULL AFTER `crtd_by`, ADD `updt_by` INT(11) NOT NULL AFTER `crtd_dt`, ADD `updt_dt` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `updt_by`;
+UPDATE `adm_et_data_types` SET `crtd_by` = '1';
+UPDATE `adm_et_data_types` SET `updt_by` = '1';
+UPDATE `adm_et_data_types` SET `crtd_dt` = '2020-01-21 04:31:27';
+
+
+ALTER TABLE `adm_et_entities` ADD `status` TINYINT NOT NULL DEFAULT '0' COMMENT '0:Active;1:Inactive;2:blocked' AFTER `columns_attributes`, ADD `crtd_by` INT(11) NOT NULL AFTER `status`, ADD `crtd_dt` DATETIME NOT NULL AFTER `crtd_by`, ADD `updt_by` INT(11) NOT NULL AFTER `crtd_dt`, ADD `updt_dt` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `updt_by`;
+UPDATE `adm_et_entities` SET `crtd_by` = '1';
+UPDATE `adm_et_entities` SET `updt_by` = '1';
+UPDATE `adm_et_entities` SET `crtd_dt` = '2020-01-21 04:31:27';
+
+
+ALTER TABLE `categories`  ADD `crtd_by` INT(11) NOT NULL AFTER `inactive`, ADD `crtd_dt` DATETIME NOT NULL AFTER `crtd_by`, ADD `updt_by` INT(11) NOT NULL AFTER `crtd_dt`, ADD `updt_dt` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `updt_by`;
+UPDATE `categories` SET `crtd_by` = '1';
+UPDATE `categories` SET `updt_by` = '1';
+UPDATE `categories` SET `crtd_dt` = '2020-01-21 04:31:27';
+
+ALTER TABLE `categories` CHANGE `tags` `meta_keyword` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE `price_list` ADD `inactive` TINYINT NOT NULL DEFAULT '0' COMMENT '0:Active;1:Inactive;2:blocked' AFTER `hs_code`, ADD `crtd_by` INT(11) NOT NULL AFTER `inactive`, ADD `crtd_dt` DATETIME NOT NULL AFTER `crtd_by`, ADD `updt_by` INT(11) NOT NULL AFTER `crtd_dt`, ADD `updt_dt` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `updt_by`;
+UPDATE `price_list` SET `crtd_by` = '1';
+UPDATE `price_list` SET `updt_by` = '1';
+UPDATE `price_list` SET `crtd_dt` = '2020-01-21 04:31:27';
+
+
+
+
+
+
+
+
+

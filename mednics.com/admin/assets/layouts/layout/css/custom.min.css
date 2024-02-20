@@ -1,0 +1,11 @@
+.mt-repeater .mt-repeater-item{
+	border-bottom: none !important; 
+}
+.mt-repeater {
+    display: initial !important;
+    width: auto !important;
+}
+
+.page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle{
+	background: #260094 !important;
+}

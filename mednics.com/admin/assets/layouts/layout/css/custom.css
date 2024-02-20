@@ -1,0 +1,386 @@
+/* here you can put your own css to customize and override the theme */
+@font-face {
+font-family: 'GoodTimesRg-Regular';
+font-style: normal;
+font-weight: normal;
+src: local('GoodTimesRg-Regular'), url('good times rg.woff') format('woff');
+}
+/************************************
+			Mobile Styles
+,**************************************/
+/*Copy and Paste this styles to your header*/
+/*helper classes*/
+  .desktop{
+    display: inline;
+  }
+  .mobile{
+      display: none;
+  }
+ .custom{
+      display: none !important;
+  }
+  /****************************************
+          For fixed header
+  *****************************************/
+  @media only screen and (max-width: 768px) {
+      /*to be used when moving  menu toggler from right to left on mobile*/
+      .page-header.navbar .menu-toggler>span,
+      .page-header.navbar .menu-toggler>span:before,
+      .page-header.navbar .menu-toggler>span:after{
+          background: #fff !important;
+          width: 20px;
+          height: 2px;
+      }   
+
+      .page-header.navbar .menu-toggler.responsive-toggler {
+          margin: 28.5px 6px 0;
+      }
+
+      .page-content-wrapper {
+          margin-top: 70px;
+      }  
+
+      /*styles for fixed header starts*/
+      .page-content-white .page-content .page-bar {
+          position: fixed;
+          width: 105%;
+          z-index: 2;
+      }
+      .navbar-fixed-top {
+          position: fixed !important;
+      }
+     
+      .page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle>img {
+          height: 40px !important;
+          margin-top: -12px;
+      }
+      .page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle {
+          padding: 21px 0 12px 2px !important;
+      }
+      .page-sidebar .page-sidebar-menu {
+          /*may change according to menu bar*/
+          margin-top: 54px;
+      }
+      .page-footer {
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          left: 0;
+      }
+      .page-sidebar-wrapper {
+          position: fixed;
+          width: 100%;
+          z-index: 999;
+      }
+      .page-content-white .page-content .page-bar ~ div {
+          margin-top: 30px;
+      }
+      /*helper classes*/
+       .custom{
+          display: initial !important;
+          float: left !important;
+      }
+      .default{
+          display: none !important;
+      }
+  }
+
+   /****************************************
+          For datatables
+    *****************************************/
+
+  @media only screen and (max-width: 480px) {
+    /*styles to move profile menu to top header if needed*/
+      .page-header.navbar .top-menu{
+        clear:none;
+      }
+      .page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle,  
+      .page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle,
+      .page-header.navbar .top-menu .navbar-nav>li.dropdown.open .dropdown-toggle,  
+      .page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle:hover{
+          background:#212121;
+      } 
+      .page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle>img{
+        margin-top:-6px !important;
+      }
+
+      /*datatables styles starts*/
+      .dataTables_wrapper .dataTables_length {
+          float: left !important;
+      }
+      .dataTables_wrapper .dataTables_filter {
+          margin-top: 0 !important;
+          float: right;
+      }
+      .dt-buttons {
+          display: none !important;
+      }
+      .portlet.light .dataTables_wrapper .dt-buttons {
+          margin-top: 0px;
+      }
+      /*helper classes*/
+      .desktop {
+          display: none;
+      }
+      .mobile{
+        display: inline;
+      }
+  }
+
+
+/***********************************
+  Login and register 
+************************************/
+.login .logo {
+    margin: 20px auto 20px !important;
+    padding: 0px !important;
+    text-align: center !important;
+}
+
+@media (max-width: 480px){
+  .login .content {
+      padding: 30px;
+      width: 347px !important;
+  }
+}
+@media only screen and (min-width: 720px){
+  .registration .content{
+    width: 720px !important;
+  }
+
+}
+
+/***********************************
+  Table Design for detail view
+************************************/
+.detail .table-bordered tbody td{
+  font-weight: bold;
+}
+.detail .table-bordered tbody td:nth-child(odd) {
+    background: #F5F5F5;
+    font-size: 14px;
+}
+.detail .table-bordered tbody td:nth-child(odd) {
+    font-weight: normal !important;
+}
+
+@media only screen and(max-width: 768px){
+  .filler{
+    display: none;
+  }
+}
+
+/************************************
+			Common Styles
+,**************************************/
+.font-orange{
+	color:#212121 !important;
+}
+.page-container-bg-solid .page-bar, 
+.page-content-white .page-bar{
+	background: #333;
+}
+.page-container-bg-solid .page-bar .page-breadcrumb>li>a, 
+.page-container-bg-solid .page-bar .page-breadcrumb>li>span, 
+.page-content-white .page-bar .paFECD29page-breadcrumb>li>span{
+	color: #fff;
+}
+
+.page-bar ~ div{
+	margin-top: 20px;
+}
+.page-content-wrapper .form-actions {
+	text-align: center !important;
+}
+
+.margin-vert-10{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.wrap-button{
+	text-align: right;
+}
+
+.no-padding-top{
+  padding-top: 0 !important;
+}
+
+.no-padding-bottom{
+  padding-bottom: 0 !important;
+}
+
+.no-padding-left{
+  padding-left: 0 !important;
+}
+
+.no-padding-right{
+  padding-right: 0 !important;
+}
+
+.no-margin-right{
+  margin-right: 0 !important;
+}
+
+.no-margin-left{
+  margin-left: 0 !important;
+}
+
+.no-margin-top{
+  margin-top: 0 !important;
+}
+
+.no-margin-bottom{
+  margin-bottom: 0 !important;
+}
+
+
+
+/************************************
+			header, sidebar and footer Styles
+**************************************/
+.page-header-fixed .page-container {
+    margin-top: 70px;
+}
+.page-header.navbar{
+  height: 70px;
+}
+.page-header.navbar .page-logo .logo-default{
+	margin: 5px 0 0;
+}
+.page-sidebar-menu{
+	padding-top: 44px !important;
+}
+.page-footer{
+  background:#333;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+.page-footer .page-footer-inner{
+  float: none;
+}
+
+.page-header.navbar .menu-toggler.sidebar-toggler {
+    margin: 27.5px 0 0;
+}
+
+.page-container-bg-solid .page-bar .page-breadcrumb>li>a, 
+.page-container-bg-solid .page-bar .page-breadcrumb>li>span, 
+.page-content-white .page-bar .page-breadcrumb>li>a, 
+.page-content-white .page-bar .page-breadcrumb>li>span{
+  color: #fff;
+  font-weight: bold;
+}
+
+.page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle {
+    padding: 29px 6px 13px 8px;
+}
+
+.header{
+  background: url('../assets/images/nav-pattern.jpg');
+}
+
+.username,
+.username ~ .fa{
+  font-weight: bold !important;
+  color: #fff !important;
+  text-transform: capitalize;
+}
+/*.nav-item .title{
+  font-family:'GoodTimesRg-Regular';
+  text-transform: capitalize; 
+  font-size: 10px;
+}*/
+
+
+/************************************
+			Gift Page Styles
+**************************************/
+#gift-image{
+ 	position: static;
+ }
+
+.blog-content-1 .blog-post-lg > .blog-img-thumb{
+ 	height: auto;
+ }
+
+.blog-container{
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.head-wrap{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eec;
+}
+
+.gift-head{
+	display: inline-block;
+	width: 45%;
+}
+
+.gift-head:last-child{
+	border-left: 1px solid #eec;
+	padding-left: 10px;
+}
+
+#gift-list,
+.amount-list{
+	margin: 20px 0;
+}
+
+/************************************
+			Review Page Styles
+**************************************/
+.timeline .timeline-body{
+	background: #EEEEEE;
+}
+.timeline .timeline-body-arrow{
+	border-color: transparent #EEEEEE transparent transparent;
+}
+
+.category{
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.rate-select-layer{
+    color: orange;
+}
+/************************************
+      Order details Page Styles
+**************************************/
+.order-col{
+  font-size: 14px !important;
+}
+
+
+
+.mt-repeater .mt-repeater-item{
+  border-bottom: none !important; 
+}
+.mt-repeater {
+    display: initial !important;
+    width: auto !important;
+}
+
+.page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle{
+  background: #333 !important;
+}
+
+
+.logo-default{
+  max-width: 100%;
+}
+
+.page-header.navbar .menu-toggler.sidebar-toggler{
+  display: none;
+}
+
+.page-logo{
+  margin-top: 10px;
+}
+
+
