@@ -1,6 +1,0 @@
-User-agent: * 
-Allow: /
-Sitemap: https://www.labotronics.com/sitemap.xml
-Disallow: /admin
-Disallow: /quotemaker
-Disallow: /tender
